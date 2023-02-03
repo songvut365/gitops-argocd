@@ -21,7 +21,7 @@
     <script>
         var stage = document.getElementById("stage")
 
-        fetch("./config.txt")
+        fetch("./config/config.txt")
         .then(res => res.text())
         .then(txt => {
             var env = txt.split("=")[1]
