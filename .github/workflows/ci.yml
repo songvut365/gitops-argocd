@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches: [ "main" ]
-    paths: [ "app/" ]
+    paths: [ "app/**", ".github/**" ]
   pull_request:
     branches: [ "main" ]
 
