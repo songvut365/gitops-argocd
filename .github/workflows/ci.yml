@@ -29,3 +29,4 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: ${{ secrets.DOCKER_USER }}/argocd-webpage:latest
+        platform: linux/arm64,linux/arm64
