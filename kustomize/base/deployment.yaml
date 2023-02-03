@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-webpage
+spec:
+  selector:
+    matchLabels:
+      app: argocd-webpage
+  template:
+    metadata:
+      labels:
+        app: argocd-webpage
+    spec:
+      containers:
+      - name: argocd-webpage
+        image: songvut365/argocd-webpage:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - mountPath: /usr/share/nginx/html/config
+            name: config
+      volumes:
+        - name: config
+          configMap:
+            name: config
