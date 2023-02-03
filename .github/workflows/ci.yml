@@ -3,10 +3,8 @@ name: CI
 on:
   push:
     branches: [ "main" ]
-    paths-ignore:
-      - 'kustomize/'
-      - 'README.md'
-      - 'docs/'
+    paths:
+      - 'app'
   pull_request:
     branches: [ "main" ]
 
@@ -30,7 +28,7 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
-        file: ./Dockerfile
+        file: ./app/Dockerfile
         push: true
         tags: ${{ secrets.DOCKER_USER }}/argocd-webpage:latest
         platforms: linux/386,linux/amd64,linux/arm/v5,linux/arm/v7,linux/arm64/v8,linux/mips64le,linux/ppc64le,linux/s390x
